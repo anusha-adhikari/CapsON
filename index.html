@@ -12,17 +12,16 @@
 <div class="container">
 <div class="row">
     <h2>Select a file to upload</h2>
-    <p>
-        {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
           {% if messages %}
             <ul>
             {% for message in messages %}
-              <li>{{ message }}</li>
+              <p><li>{{ message }}</li></p>
             {% endfor %}
             </ul>
           {% endif %}
         {% endwith %}
-    </p>
+
     {% if filename %}
         <div style="max-width: 400px">
             <img src="{{ url_for('display_image', filename=filename) }}" style="max-width:100%;" />
